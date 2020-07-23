@@ -1,0 +1,5 @@
+#! /bin/sh
+
+mkdir -p tmp
+env GOTMPDIR=$(realpath tmp) TAGS=bindata make \
+&& docker build --tag local-gitea -f docker/Dockerfile .
