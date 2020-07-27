@@ -568,6 +568,8 @@ func RegisterRoutes(m *macaron.Macaron) {
 				m.Get("/starred", user.GetStarredRepos)
 
 				m.Get("/subscriptions", user.GetWatchedRepos)
+
+				m.Get("/times", user.ListUserTrackedTimes)
 			})
 		}, reqToken())
 
@@ -617,7 +619,7 @@ func RegisterRoutes(m *macaron.Macaron) {
 					m.Delete("", user.Unstar)
 				}, repoAssignment())
 			})
-			m.Get("/times", repo.ListMyTrackedTimes)
+			m.Get("/times", user.ListMyTrackedTimes)
 
 			m.Get("/stopwatches", repo.GetStopwatches)
 

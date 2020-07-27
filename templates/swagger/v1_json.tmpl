@@ -10767,6 +10767,58 @@
         }
       }
     },
+    "/users/{username}/times": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "user"
+        ],
+        "summary": "List the user's tracked times",
+        "operationId": "userAllTrackedTimes",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "username of user",
+            "name": "username",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "integer",
+            "description": "page number of results to return (1-based)",
+            "name": "page",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "description": "page size of results",
+            "name": "limit",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "format": "date-time",
+            "description": "Only show times updated after the given time. This is a timestamp in RFC 3339 format",
+            "name": "since",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "format": "date-time",
+            "description": "Only show times updated before the given time. This is a timestamp in RFC 3339 format",
+            "name": "before",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/TrackedTimeList"
+          }
+        }
+      }
+    },
     "/users/{username}/tokens": {
       "get": {
         "produces": [
